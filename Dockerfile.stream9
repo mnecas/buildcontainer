@@ -14,6 +14,9 @@ RUN update-crypto-policies --set LEGACY
 RUN dnf copr enable -y ovirt/ovirt-master-snapshot centos-stream-9 \
     && dnf install -y ovirt-release-master
 
+# Add Stream Build Service repo
+RUN dnf config-manager --add-repo https://kojihub.stream.centos.org/kojifiles/repos/c9s-build/latest/x86_64
+
 # Configure CS9 repositories
 RUN dnf config-manager --enable crb
 

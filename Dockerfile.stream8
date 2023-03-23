@@ -11,6 +11,9 @@ RUN dnf module enable -y \
     maven:3.6 \
     nodejs:14
 
+# Add Stream Build Service repo
+RUN dnf config-manager --add-repo https://kojihub.stream.centos.org/kojifiles/repos/c8s-build/latest/x86_64
+
 # Add "build" user for optional non-root builds
 # Install required packages and the GitHub CLI tool so actions can use it when running in the container
 RUN \
